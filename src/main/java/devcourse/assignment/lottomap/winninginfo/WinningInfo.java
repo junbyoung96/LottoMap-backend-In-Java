@@ -1,5 +1,6 @@
 package devcourse.assignment.lottomap.winninginfo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import devcourse.assignment.lottomap.store.Store;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -18,7 +19,7 @@ public class WinningInfo {
     @Column(nullable = false)
     private Integer drawNo;
 
-    @Column(nullable = false)
+    @Column()
     private String category;
 
     @Column(nullable = false)
@@ -26,6 +27,7 @@ public class WinningInfo {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "store_id", nullable = false)
+    @JsonIgnore
     private Store store;
 
     public WinningInfo(Integer drawNo, String category, Integer rank, Store store) {

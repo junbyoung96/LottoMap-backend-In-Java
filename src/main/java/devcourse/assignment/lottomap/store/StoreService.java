@@ -26,4 +26,11 @@ public class StoreService {
                 dto.getNorthEastLon()
         );
     }
+    public List<StoreResponseDto> convert(List<Store> stores) {
+        List<StoreResponseDto> list = new ArrayList<>();
+        for (Store store : stores) {
+            list.add(new StoreResponseDto(store));
+        }
+        return list;
+    }
 }

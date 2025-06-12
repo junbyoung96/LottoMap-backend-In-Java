@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: lottomap
+  jpa:
+    show-sql: true
+    hibernate:
+      #ddl-auto: create-drop
+      ddl-auto: update
+    database: postgresql
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/lottomap
+    username: postgres
+    password: root
+  sql:
+    init:
+      mode: always

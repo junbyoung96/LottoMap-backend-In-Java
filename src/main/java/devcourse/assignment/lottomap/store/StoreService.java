@@ -4,7 +4,7 @@ import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -20,12 +20,7 @@ public class StoreService {
                 .orElseThrow(() -> new EntityNotFoundException("Store with ID " + id + " not found"));
     }
 
-    public List<StoreRanking> getNearByStores(BoundingBoxDto dto) {
-        return storeRankingRepository.findStoresInBounds(
-                dto.getSouthWestLat(),
-                dto.getNorthEastLat(),
-                dto.getSouthWestLon(),
-                dto.getNorthEastLon()
-        );
+    public List<StoreRanking> getNearByStores(BigDecimal lat, BigDecimal lon) {
+        return storeRankingRepository.findNearestStores(lat, lon);
     }
 }

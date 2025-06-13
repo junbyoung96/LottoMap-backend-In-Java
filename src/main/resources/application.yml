@@ -4,8 +4,7 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
-      #ddl-auto: update
+      ddl-auto: none
     database: postgresql
   datasource:
     driver-class-name: org.postgresql.Driver

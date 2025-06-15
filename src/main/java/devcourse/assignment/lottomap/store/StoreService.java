@@ -21,6 +21,6 @@ public class StoreService {
     }
 
     public List<StoreRanking> getNearByStores(BigDecimal lat, BigDecimal lon) {
-        return storeRankingRepository.findNearestStores(lat, lon);
+        return storeRankingRepository.findNearestStores(lat, lon, 3000);
     }
 }
